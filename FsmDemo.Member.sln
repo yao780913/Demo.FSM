@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsmDemo.Member.Contracts", "FsmDemo.Member.Contracts\FsmDemo.Member.Contracts.csproj", "{0DDC374C-EE8C-4BE1-9DB8-BF9D3B259D73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsmDemo.Member.Core", "FsmDemo.Member.Core\FsmDemo.Member.Core.csproj", "{9AA1E9F9-07D6-4A02-96D2-BD2288F9FAD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DDC374C-EE8C-4BE1-9DB8-BF9D3B259D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDC374C-EE8C-4BE1-9DB8-BF9D3B259D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDC374C-EE8C-4BE1-9DB8-BF9D3B259D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDC374C-EE8C-4BE1-9DB8-BF9D3B259D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA1E9F9-07D6-4A02-96D2-BD2288F9FAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA1E9F9-07D6-4A02-96D2-BD2288F9FAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA1E9F9-07D6-4A02-96D2-BD2288F9FAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA1E9F9-07D6-4A02-96D2-BD2288F9FAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
