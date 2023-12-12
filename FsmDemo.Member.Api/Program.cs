@@ -4,8 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddScoped<MemberRepo>();
 builder.Services.AddScoped<MemberStateMachine>();
 builder.Services.AddScoped<MemberService>();
+
 
 var app = builder.Build();
 

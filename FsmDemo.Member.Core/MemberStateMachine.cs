@@ -25,16 +25,14 @@ public class MemberStateMachine
     /// <returns></returns>
     public (bool result, MemberState? initState, MemberState? finalState) CanExecute (
         MemberState currentState,
-        string actionName,
-        string identityType)
+        string actionName)
     {
         foreach (var (_, _, finalState, _) in from r in this._fsmList
                  where r.actionName == actionName
                        && (r.initialState == null || r.initialState == currentState)
-                       && r.allowIdnetityTypes.Contains(identityType)
                  select r)
         {
-            Console.WriteLine($"* FSM: can not execute action({actionName}) in current member state({currentState}) with token identity type({identityType}) and specified init state({currentState})");
+            Console.WriteLine($"* FSM: can not execute action({actionName}) in current member state({currentState}) and specified init state({currentState})");
             return (true, currentState, finalState: finalState);
         }
         
@@ -47,16 +45,15 @@ public class MemberStateMachine
     /// <param name="actionName"></param>
     /// <param name="identityType"></param>
     /// <returns></returns>
-    public bool CanExecute (string actionName, string identityType)
+    public bool CanExecute (string actionName)
     {
         if ((from r in this._fsmList
                 where r.actionName == actionName
-                      && r.allowIdnetityTypes.Contains(identityType)
                 select r).Any())
         {
             return true;
         }
-        Console.WriteLine($"* FSM: can not execute action({actionName}) in current token identity type({identityType})");
+        Console.WriteLine($"* FSM: can not execute action({actionName})");
         return false;
     }
 }
