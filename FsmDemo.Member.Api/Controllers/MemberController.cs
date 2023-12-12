@@ -1,6 +1,4 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using FsmDemo.Member.Api.Models;
 using FsmDemo.Member.Core;
 
 namespace FsmDemo.Member.Api.Controllers;
