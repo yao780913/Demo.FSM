@@ -24,10 +24,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseMiddleware<MemberServiceMiddle>();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(name: "default",
-    pattern: "{controller=Member}/{action=Index}/{id?}");
+app.MapControllerRoute("default",
+    "{controller=Member}/{action=Index}/{id?}");
 
 app.Run();

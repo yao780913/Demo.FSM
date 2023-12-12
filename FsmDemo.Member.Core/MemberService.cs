@@ -4,8 +4,8 @@ namespace FsmDemo.Member.Core;
 
 public class MemberService
 {
-    private readonly MemberRepo _repo;
     private readonly MemberStateMachine _fcm;
+    private readonly MemberRepo _repo;
 
     public MemberService (MemberRepo repo, MemberStateMachine fcm)
     {
@@ -14,7 +14,6 @@ public class MemberService
     }
 
     /// <summary>
-    /// 
     /// </summary>
     /// <param name="name"></param>
     /// <param name="password"></param>
@@ -24,7 +23,7 @@ public class MemberService
     {
         if (!FsmRuleCheck(null, "register"))
             return null;
-        
+
         return new MemberModel
         {
             Id = GetNewId(),
@@ -35,32 +34,25 @@ public class MemberService
         };
     }
 
-    private bool FsmRuleCheck (int? id, string actionName)
+    internal bool FsmRuleCheck (int? id, string actionName)
     {
         if (id is not null)
         {
             if (!MemberRepo.Members.ContainsKey(id.Value))
                 return false;
-            
-            if (!_fcm.CanExecute(
-                    MemberRepo.Members[id.Value].State,
-                    actionName).result)
-            {
+
+            if (!_fcm.CanExecute(MemberRepo.Members[id.Value].State,
+                        actionName)
+                    .result)
                 return false;
-            }
         }
         else
         {
-            if (!_fcm.CanExecute(actionName))
-            {
-                return false;
-            }
+            if (!_fcm.CanExecute(actionName)) return false;
         }
+
         return true;
     }
 
-    private int GetNewId ()
-    {
-        return new Random().Next(1, 99999);
-    }
+    private int GetNewId () => new Random().Next(1, 99999);
 }

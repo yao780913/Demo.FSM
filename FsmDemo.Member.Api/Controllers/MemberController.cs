@@ -1,6 +1,6 @@
 using FsmDemo.Contracts;
-using Microsoft.AspNetCore.Mvc;
 using FsmDemo.Member.Core;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FsmDemo.Member.Api.Controllers;
 
@@ -17,10 +17,7 @@ public class MemberController : ControllerBase
 
     [HttpPost]
     [Route("register")]
-    public IActionResult Register ([FromBody]MemberRegisterRequest request)
-    {
-        return Ok(_service.Register(request.Name, request.Password, request.Email));
-    }
-    
-    
+    [MemberServiceAction(ActionName = "register")]
+    public IActionResult Register ([FromBody] MemberRegisterRequest request) =>
+        Ok(_service.Register(request.Name, request.Password, request.Email));
 }
